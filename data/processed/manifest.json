@@ -1,0 +1,13 @@
+{
+  "exported_at": "2026-09-03T15:45:30.892675Z",
+  "export_directory": "C:\\Users\\aravindhan.chandrase\\Desktop\\Psiddhi Sem3\\InfraLens\\data\\processed",
+  "tables": {
+    "daily_metrics_rollup": 669,
+    "hourly_metrics_rollup": 10773,
+    "anomaly_alerts": 41,
+    "capacity_forecasts": 6,
+    "underutilized_resources": 1,
+    "narrative_insights": 5,
+    "raw_metrics": 70608
+  }
+}

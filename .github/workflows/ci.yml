@@ -1,0 +1,35 @@
+name: InfraLens CI / CD Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test-and-validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+        cache: "pip"
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest pytest-cov locust
+
+    - name: Run Pytest Test Suite with Coverage
+      run: |
+        python -m pytest --cov=ai --cov=database --cov=ingestion --cov=transformation --cov=validation --cov=dashboard --cov-report=term-missing --cov-fail-under=80
+
+    - name: Run Scale Benchmark (Week 15 SLA Validation)
+      run: |
+        python -m tests.benchmark_scale

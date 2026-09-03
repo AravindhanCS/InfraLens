@@ -1,0 +1,10 @@
+requests
+pandas
+duckdb
+clickhouse-connect
+google-genai
+python-dotenv
+numpy
+scikit-learn
+schedule
+pyarrow

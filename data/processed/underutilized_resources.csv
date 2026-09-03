@@ -1,0 +1,2 @@
+resource_id,avg_cpu,avg_memory,daily_cost,potential_monthly_saving,service_tag,region
+vm-dev-01,8.074720812215633,12.031975330859296,9.434239318526126,283.0271795557838,development,centralus

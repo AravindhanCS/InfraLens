@@ -1,0 +1,70 @@
+timestamp,scenario,resource_id,insight_text
+2026-09-03 15:45:30.868313,cost_anomaly,vm-prod-01,"### ⚠️ Cost Anomaly Detected: vm-prod-01
+
+A critical cost anomaly has been flagged for **vm-prod-01** in the **centralus** region. The daily cost spiked to **300.00 USD**, which is **166.1%** above its 30-day average of **112.73 USD** (Z-Score: **3.47**).
+
+**Analysis of Spend:**
+- The anomaly is associated with the **compute** service group.
+- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+
+**Recommended Actions:**
+1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
+2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
+3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
+"
+2026-09-03 15:45:30.868313,cost_anomaly,vm-prod-01,"### ⚠️ Cost Anomaly Detected: vm-prod-01
+
+A critical cost anomaly has been flagged for **vm-prod-01** in the **centralus** region. The daily cost spiked to **201.85 USD**, which is **79.1%** above its 30-day average of **112.73 USD** (Z-Score: **2.26**).
+
+**Analysis of Spend:**
+- The anomaly is associated with the **compute** service group.
+- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+
+**Recommended Actions:**
+1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
+2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
+3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
+"
+2026-09-03 15:45:30.868313,cost_anomaly,vm-prod-01,"### ⚠️ Cost Anomaly Detected: vm-prod-01
+
+A critical cost anomaly has been flagged for **vm-prod-01** in the **centralus** region. The daily cost spiked to **209.72 USD**, which is **86.0%** above its 30-day average of **112.73 USD** (Z-Score: **3.47**).
+
+**Analysis of Spend:**
+- The anomaly is associated with the **compute** service group.
+- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+
+**Recommended Actions:**
+1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
+2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
+3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
+"
+2026-09-03 15:45:30.868313,capacity_risk,vm-prod-02,"### 📈 Capacity Risk Alert: vm-prod-02 (CPU)
+
+The resource **vm-prod-02** in region **centralus** is experiencing sustained capacity growth. 
+- **Current CPU average:** 64.34%
+- **Projected 90-Day CPU:** 100.00%
+- **Growth Trend:** 0.5004% utilization increase per day
+- **Projected Breach Date (80%):** 2026-08-31
+
+**Impact Analysis:**
+If unaddressed, the resource is projected to exceed the safe operating threshold of 80% on **2026-08-31**, which increases risk of latency spikes, thread exhaustion, or system failure under peak loads.
+
+**Recommended Pre-emptive Actions:**
+1. **Scale-out or Scale-up:** Upgrade the virtual machine size or set up auto-scaling with additional node instances.
+2. **Optimize Load Distribution:** Redistribute traffic or scheduling queues to less loaded servers in the cluster.
+3. **Optimize Code/DB:** Inspect slow queries or optimize memory structures to lower the baseline usage.
+"
+2026-09-03 15:45:30.868313,underutilization,,"### 💡 Infrastructure Optimization & Right-Sizing Report
+
+Analysis of telemetry over the past 7 days has identified opportunities to reduce cloud spend by decommissioning or right-sizing underutilized resources.
+
+#### Candidate: vm-dev-01 (development tag)
+- **Average CPU utilization:** 8.07% (Threshold: < 20%)
+- **Average Memory utilization:** 12.03% (Threshold: < 20%)
+- **Current daily cost:** 9.43 USD
+- **Decommission Savings:** **283.03 USD/Month**
+- **Confidence Level:** High (Consistently underutilized over a 7-day rolling window)
+
+**Total Potential Savings: 283.03 USD/Month**
+
+**Decommissioning Plan:** We recommend shutting down these resources in the next maintenance window after notifying their respective owners."
