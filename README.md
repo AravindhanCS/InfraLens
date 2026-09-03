@@ -46,35 +46,60 @@ flowchart TD
 
 ```text
 InfraLens/
+├── .github/
+│   └── workflows/ci.yml       # GitHub Actions automated test & coverage CI pipeline
 ├── ai/
 │   ├── __init__.py
 │   ├── gemini.py              # Gemini 2.5 Flash SDK wrapper & local offline fallback generator
 │   ├── insight_generator.py   # AI insight coordinator (queries DuckDB -> prompt -> generates narratives)
+│   ├── narrative_validator.py # AI narrative factual claim extraction & validation engine
 │   └── prompts.py             # Prompts for Cost Anomaly, Capacity Risk, and Underutilization
 ├── dashboard/
-│   └── PowerBI.pbix           # Power BI Desktop template dashboard
+│   ├── POWERBI_SETUP_GUIDE.md # 4-domain visual blueprints, DAX measures, and Star Schema model
+│   ├── PowerBI.pbix           # Power BI Desktop template dashboard
+│   └── powerbi_connector.py   # Python script connector for 1-click loading in Power BI Desktop
+├── data/
+│   ├── processed/             # Exported Parquet & CSV analytical tables for Power BI
+│   └── raw/                   # Raw cache directory
 ├── database/
-│   ├── clickhouse/            # ClickHouse DB runtime references
-│   ├── duckdb/                # DuckDB local database files (.db)
+│   ├── duckdb/infra.db        # DuckDB local database file
 │   ├── clickhouse_store.py    # ClickHouse table init, writes, and auto-start logic
 │   └── duckdb_store.py        # DuckDB table initialization and writes
 ├── ingestion/
 │   ├── __init__.py
-│   ├── azure_cost.py          # Azure Cost Management telemetry fetcher (mock API)
-│   ├── azure_monitor.py       # Azure Monitor compute telemetry fetcher (mock API)
-│   ├── datadog.py             # Datadog service telemetry fetcher (mock API)
+│   ├── azure_cost.py          # Azure Cost Management telemetry fetcher
+│   ├── azure_monitor.py       # Azure Monitor compute telemetry fetcher
+│   ├── datadog.py             # Datadog service telemetry fetcher
 │   ├── runner.py              # Ingestion orchestrator runner (pulls and inserts latest)
 │   ├── schema.py              # Shared normalized schema definition
 │   └── seed_data.py           # Historical data seeding script (populates 30 days of metrics)
 ├── scheduler/
-│   └── scheduler.py           # Orchestrator CLI and cron schedule loops
+│   └── scheduler.py           # Orchestrator CLI (7-step E2E pipeline & cron loops)
+├── tests/
+│   ├── benchmark_scale.py     # 80,000+ records scale benchmark runner (<10s query SLA test)
+│   ├── locustfile.py          # Locust performance test definitions
+│   ├── test_ai.py             # AI module unit tests
+│   ├── test_benchmark_unit.py # Unit tests for benchmark generators
+│   ├── test_data_validation.py# Telemetry & schema validation tests
+│   ├── test_database.py       # DuckDB & ClickHouse integration tests
+│   ├── test_e2e.py            # End-to-end full pipeline lifecycle test
+│   ├── test_export.py         # Power BI export bridge tests
+│   ├── test_ingestion.py      # Multi-source ingestion schema tests
+│   ├── test_narrative_accuracy.py # AI narrative factual accuracy tests
+│   └── test_transformation.py # Math, z-scores, regression & rollup tests
 ├── transformation/
 │   ├── aggregate.py           # Hourly and daily metric rollups
 │   ├── anomaly.py             # 14-day rolling z-score anomaly detection
+│   ├── export_for_bi.py       # Parquet and CSV export engine for Power BI
 │   ├── forecast.py            # 30-day rolling linear regression & capacity risk breach dates
 │   └── optimization.py        # 7-day underutilization scoring & savings calculator
+├── validation/
+│   ├── __init__.py
+│   └── data_validator.py      # Schema quality, boundary, null, and duplicate validator
 ├── config.py                  # Project environment configurations
 ├── requirements.txt           # Python library dependencies
+├── S3-P-01_Aravindhan_Chandrasekaran_FinalDoc.md # Final submission evidence document
+├── verify_output.py           # Text verification report script
 └── README.md                  # This documentation
 ```
 
