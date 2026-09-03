@@ -19,16 +19,22 @@ def analyze_underutilization(conn=None) -> None:
     conn.execute(
         """
         CREATE OR REPLACE TABLE underutilized_resources AS
-        WITH last_7_days AS (
-            SELECT
-                resource_id,
-                metric_name,
-                service_tag,
-                region,
-                avg_value
+        WITH resource_max_time AS (
+            SELECT resource_id, MAX(timestamp) as max_ts
             FROM daily_metrics_rollup
-            WHERE timestamp >= (SELECT MAX(timestamp) FROM daily_metrics_rollup) - INTERVAL 7 DAY
-              AND metric_name IN ('cpu_utilization', 'memory_utilization')
+            GROUP BY resource_id
+        ),
+        last_7_days AS (
+            SELECT
+                d.resource_id,
+                d.metric_name,
+                d.service_tag,
+                d.region,
+                d.avg_value
+            FROM daily_metrics_rollup d
+            JOIN resource_max_time m ON d.resource_id = m.resource_id
+            WHERE d.timestamp >= m.max_ts - INTERVAL 7 DAY
+              AND d.metric_name IN ('cpu_utilization', 'memory_utilization')
         ),
         pivoted AS (
             SELECT

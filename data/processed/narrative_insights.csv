@@ -1,20 +1,7 @@
 timestamp,scenario,resource_id,insight_text
-2026-09-03 15:45:30.868313,cost_anomaly,vm-prod-01,"### ⚠️ Cost Anomaly Detected: vm-prod-01
+2026-09-03 18:01:57.718892,cost_anomaly,vm-scale-06,"### ⚠️ Cost Anomaly Detected: vm-scale-06
 
-A critical cost anomaly has been flagged for **vm-prod-01** in the **centralus** region. The daily cost spiked to **300.00 USD**, which is **166.1%** above its 30-day average of **112.73 USD** (Z-Score: **3.47**).
-
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
-
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 15:45:30.868313,cost_anomaly,vm-prod-01,"### ⚠️ Cost Anomaly Detected: vm-prod-01
-
-A critical cost anomaly has been flagged for **vm-prod-01** in the **centralus** region. The daily cost spiked to **201.85 USD**, which is **79.1%** above its 30-day average of **112.73 USD** (Z-Score: **2.26**).
+A critical cost anomaly has been flagged for **vm-scale-06** in the **eastus** region. The daily cost spiked to **258.88 USD**, which is **61.3%** above its 30-day average of **160.52 USD** (Z-Score: **2.20**).
 
 **Analysis of Spend:**
 - The anomaly is associated with the **compute** service group.
@@ -25,9 +12,9 @@ A critical cost anomaly has been flagged for **vm-prod-01** in the **centralus**
 2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
 3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
 "
-2026-09-03 15:45:30.868313,cost_anomaly,vm-prod-01,"### ⚠️ Cost Anomaly Detected: vm-prod-01
+2026-09-03 18:01:57.718892,cost_anomaly,vm-prod-01,"### ⚠️ Cost Anomaly Detected: vm-prod-01
 
-A critical cost anomaly has been flagged for **vm-prod-01** in the **centralus** region. The daily cost spiked to **209.72 USD**, which is **86.0%** above its 30-day average of **112.73 USD** (Z-Score: **3.47**).
+A critical cost anomaly has been flagged for **vm-prod-01** in the **centralus** region. The daily cost spiked to **300.00 USD**, which is **41.4%** above its 30-day average of **212.15 USD** (Z-Score: **3.47**).
 
 **Analysis of Spend:**
 - The anomaly is associated with the **compute** service group.
@@ -38,7 +25,137 @@ A critical cost anomaly has been flagged for **vm-prod-01** in the **centralus**
 2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
 3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
 "
-2026-09-03 15:45:30.868313,capacity_risk,vm-prod-02,"### 📈 Capacity Risk Alert: vm-prod-02 (CPU)
+2026-09-03 18:01:57.718892,cost_anomaly,vm-scale-07,"### ⚠️ Cost Anomaly Detected: vm-scale-07
+
+A critical cost anomaly has been flagged for **vm-scale-07** in the **westeurope** region. The daily cost spiked to **256.60 USD**, which is **70.8%** above its 30-day average of **150.20 USD** (Z-Score: **2.40**).
+
+**Analysis of Spend:**
+- The anomaly is associated with the **compute** service group.
+- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+
+**Recommended Actions:**
+1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
+2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
+3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
+"
+2026-09-03 18:01:57.718892,cost_anomaly,vm-scale-07,"### ⚠️ Cost Anomaly Detected: vm-scale-07
+
+A critical cost anomaly has been flagged for **vm-scale-07** in the **eastus** region. The daily cost spiked to **272.64 USD**, which is **81.5%** above its 30-day average of **150.20 USD** (Z-Score: **2.68**).
+
+**Analysis of Spend:**
+- The anomaly is associated with the **compute** service group.
+- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+
+**Recommended Actions:**
+1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
+2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
+3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
+"
+2026-09-03 18:01:57.718892,cost_anomaly,vm-scale-02,"### ⚠️ Cost Anomaly Detected: vm-scale-02
+
+A critical cost anomaly has been flagged for **vm-scale-02** in the **westeurope** region. The daily cost spiked to **255.31 USD**, which is **59.3%** above its 30-day average of **160.27 USD** (Z-Score: **2.10**).
+
+**Analysis of Spend:**
+- The anomaly is associated with the **compute** service group.
+- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+
+**Recommended Actions:**
+1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
+2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
+3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
+"
+2026-09-03 18:01:57.718892,cost_anomaly,vm-scale-03,"### ⚠️ Cost Anomaly Detected: vm-scale-03
+
+A critical cost anomaly has been flagged for **vm-scale-03** in the **eastus** region. The daily cost spiked to **256.17 USD**, which is **62.2%** above its 30-day average of **157.96 USD** (Z-Score: **2.12**).
+
+**Analysis of Spend:**
+- The anomaly is associated with the **compute** service group.
+- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+
+**Recommended Actions:**
+1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
+2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
+3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
+"
+2026-09-03 18:01:57.718892,cost_anomaly,vm-scale-04,"### ⚠️ Cost Anomaly Detected: vm-scale-04
+
+A critical cost anomaly has been flagged for **vm-scale-04** in the **westeurope** region. The daily cost spiked to **279.57 USD**, which is **78.7%** above its 30-day average of **156.49 USD** (Z-Score: **2.32**).
+
+**Analysis of Spend:**
+- The anomaly is associated with the **compute** service group.
+- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+
+**Recommended Actions:**
+1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
+2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
+3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
+"
+2026-09-03 18:01:57.718892,cost_anomaly,vm-scale-04,"### ⚠️ Cost Anomaly Detected: vm-scale-04
+
+A critical cost anomaly has been flagged for **vm-scale-04** in the **eastus** region. The daily cost spiked to **248.17 USD**, which is **58.6%** above its 30-day average of **156.49 USD** (Z-Score: **2.27**).
+
+**Analysis of Spend:**
+- The anomaly is associated with the **compute** service group.
+- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+
+**Recommended Actions:**
+1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
+2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
+3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
+"
+2026-09-03 18:01:57.718892,cost_anomaly,vm-scale-04,"### ⚠️ Cost Anomaly Detected: vm-scale-04
+
+A critical cost anomaly has been flagged for **vm-scale-04** in the **eastus** region. The daily cost spiked to **219.71 USD**, which is **40.4%** above its 30-day average of **156.49 USD** (Z-Score: **2.06**).
+
+**Analysis of Spend:**
+- The anomaly is associated with the **compute** service group.
+- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+
+**Recommended Actions:**
+1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
+2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
+3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
+"
+2026-09-03 18:01:57.718892,cost_anomaly,vm-scale-04,"### ⚠️ Cost Anomaly Detected: vm-scale-04
+
+A critical cost anomaly has been flagged for **vm-scale-04** in the **westeurope** region. The daily cost spiked to **230.79 USD**, which is **47.5%** above its 30-day average of **156.49 USD** (Z-Score: **2.12**).
+
+**Analysis of Spend:**
+- The anomaly is associated with the **compute** service group.
+- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+
+**Recommended Actions:**
+1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
+2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
+3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
+"
+2026-09-03 18:01:57.718892,cost_anomaly,vm-scale-01,"### ⚠️ Cost Anomaly Detected: vm-scale-01
+
+A critical cost anomaly has been flagged for **vm-scale-01** in the **eastus** region. The daily cost spiked to **245.66 USD**, which is **52.4%** above its 30-day average of **161.21 USD** (Z-Score: **2.02**).
+
+**Analysis of Spend:**
+- The anomaly is associated with the **compute** service group.
+- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+
+**Recommended Actions:**
+1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
+2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
+3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
+"
+2026-09-03 18:01:57.718892,cost_anomaly,vm-scale-09,"### ⚠️ Cost Anomaly Detected: vm-scale-09
+
+A critical cost anomaly has been flagged for **vm-scale-09** in the **centralus** region. The daily cost spiked to **239.57 USD**, which is **50.6%** above its 30-day average of **159.05 USD** (Z-Score: **2.09**).
+
+**Analysis of Spend:**
+- The anomaly is associated with the **compute** service group.
+- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+
+**Recommended Actions:**
+1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
+2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
+3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
+"
+2026-09-03 18:01:57.718892,capacity_risk,vm-prod-02,"### 📈 Capacity Risk Alert: vm-prod-02 (CPU)
 
 The resource **vm-prod-02** in region **centralus** is experiencing sustained capacity growth. 
 - **Current CPU average:** 64.34%
@@ -54,7 +171,7 @@ If unaddressed, the resource is projected to exceed the safe operating threshold
 2. **Optimize Load Distribution:** Redistribute traffic or scheduling queues to less loaded servers in the cluster.
 3. **Optimize Code/DB:** Inspect slow queries or optimize memory structures to lower the baseline usage.
 "
-2026-09-03 15:45:30.868313,underutilization,,"### 💡 Infrastructure Optimization & Right-Sizing Report
+2026-09-03 18:01:57.718892,underutilization,,"### 💡 Infrastructure Optimization & Right-Sizing Report
 
 Analysis of telemetry over the past 7 days has identified opportunities to reduce cloud spend by decommissioning or right-sizing underutilized resources.
 
