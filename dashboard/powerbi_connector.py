@@ -66,7 +66,7 @@ FALLBACK_SCHEMAS = {
 }
 
 
-def load_dataset(table_name: str) -> pd.DataFrame:
+def load_dataset(table_name: str, conn=None) -> pd.DataFrame:
     """Load a dataset from CSV or Parquet files, with schema preservation."""
     # Attempt 1: Read pre-exported CSV (most portable across any Python environment)
     csv_path = PROCESSED_DIR / f"{table_name}.csv"
