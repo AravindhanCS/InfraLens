@@ -29,7 +29,7 @@ def get_clickhouse_client(
             host=host,
             port=port,
             username=username,
-            password=password,
+            password=password,      
             database=database,
         )
         client.ping()

@@ -1,200 +1,99 @@
 timestamp,scenario,resource_id,insight_text
-2026-09-03 20:20:27.725008,cost_anomaly,vm-scale-07,"### ⚠️ Cost Anomaly Detected: vm-scale-07
+2026-11-20 01:50:06.874715,cost_anomaly,vm-prod-01,"**Cost Anomaly Alert: `vm-prod-01` in `centralus`**
 
-A critical cost anomaly has been flagged for **vm-scale-07** in the **eastus** region. The daily cost spiked to **272.64 USD**, which is **81.5%** above its 30-day average of **150.20 USD** (Z-Score: **2.91**).
+We've identified a significant cost anomaly on `vm-prod-01` in the `centralus` region. The daily cost for this compute instance has surged to **$300.00 USD**, representing a **141.4% increase** above its 30-day average of $124.30 USD. This substantial spike, indicated by a Z-Score of 3.47, suggests an unusual and sustained increase in resource consumption. Likely contributing factors include a sudden and prolonged spike in CPU or memory utilization, increased network egress traffic (e.g., large data transfers out of the region), or unexpected high-volume storage I/O operations.
 
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+To address this, we recommend the following immediate actions:
 
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 20:20:27.725008,cost_anomaly,vm-scale-04,"### ⚠️ Cost Anomaly Detected: vm-scale-04
+1.  **Investigate Resource Utilization:** Review `vm-prod-01`'s CPU, memory, and network I/O metrics for the last 24-48 hours to pinpoint the exact resource driving the cost increase.
+2.  **Right-Sizing Evaluation:** If sustained high utilization is observed, assess if the current instance type is appropriately sized for the workload. Consider right-sizing to a more cost-effective instance type that meets performance requirements without over-provisioning.
+3.  **Network Egress Audit:** Check network flow logs for any unusually large data transfers originating from `vm-prod-01`, identifying the destination and purpose to optimize data transfer costs.
+4.  **Idle Instance Check:** If utilization is low or intermittent, evaluate if the instance can be stopped during off-peak hours or if the workload is suitable for a more elastic solution like auto-scaling groups or serverless functions."
+2026-11-20 01:50:06.874715,cost_anomaly,vm-prod-01,"**Cost Anomaly Alert: `vm-prod-01` in `centralus`**
 
-A critical cost anomaly has been flagged for **vm-scale-04** in the **westeurope** region. The daily cost spiked to **279.57 USD**, which is **78.7%** above its 30-day average of **156.49 USD** (Z-Score: **2.32**).
+We've identified a significant cost anomaly for `vm-prod-01` in the `centralus` region. Its daily cost has surged to **$201.85**, representing a **62.4% increase** above its 30-day average of $124.30. This spike, indicated by a Z-score of 2.26, suggests an unusual and sustained increase in resource consumption. The most likely contributing factors are elevated CPU utilization, increased memory consumption, higher network data transfer (egress), or a significant rise in disk I/O operations over the past 24-48 hours.
 
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+To address this, we recommend the following immediate actions:
 
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 20:20:27.725008,cost_anomaly,vm-scale-04,"### ⚠️ Cost Anomaly Detected: vm-scale-04
+1.  **Investigate Resource Metrics**: Review `vm-prod-01`'s CPU, memory, network egress, and disk I/O metrics for the last 48 hours to pinpoint the exact resource driving the cost increase.
+2.  **Workload Analysis**: Identify any new applications, processes, or data transfer jobs that started recently on this VM.
+3.  **Right-Sizing Evaluation**: If the current utilization spike is temporary or if the VM is generally over-provisioned, consider right-sizing the instance type to match actual workload requirements, potentially saving 15-30% on compute costs.
+4.  **Network Egress Audit**: Check network logs for unexpected or excessive data transfer volumes, as egress charges can accumulate rapidly.
+5.  **Idle Instance Policy**: If the VM is not critical 24/7, explore implementing scheduled shutdowns during off-peak hours to reduce operational costs."
+2026-11-20 01:50:06.874715,cost_anomaly,vm-prod-01,"We've identified a significant cost anomaly for `vm-prod-01` in the `centralus` region. This virtual machine's daily cost has surged to **$209.72 USD**, marking a substantial **68.7% increase** above its 30-day average of $124.30 USD. Given its `compute` service tag, this spike is most likely driven by a sudden increase in CPU or memory utilization, potentially due to a new application deployment, an unexpected traffic surge, or an inefficient process. Secondary factors could include higher network data transfer out (egress) or increased storage I/O operations.
 
-A critical cost anomaly has been flagged for **vm-scale-04** in the **eastus** region. The daily cost spiked to **248.17 USD**, which is **58.6%** above its 30-day average of **156.49 USD** (Z-Score: **2.43**).
+To address this, we recommend immediate investigation into `vm-prod-01`'s real-time resource metrics (CPU, memory, network I/O) to pinpoint the exact cause. For concrete cost optimization:
 
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+1.  **Right-sizing Evaluation**: If the elevated utilization is temporary or unnecessary, assess if a smaller instance type can meet its baseline needs without impacting performance.
+2.  **Network Egress Review**: Check network logs for any unexpected spikes in data transfer volume, as egress costs can accumulate rapidly.
+3.  **Workload Analysis**: Understand if the current workload genuinely justifies the increased resource consumption or if there's an opportunity to optimize application code or configuration.
+4.  **Scheduled Shutdowns/Auto-scaling**: For non-critical periods, explore implementing scheduled shutdowns or auto-scaling policies to match capacity with demand more closely, if applicable to this production VM's role."
+2026-11-20 01:50:06.874715,capacity_risk,vm-prod-02,"Here's a capacity risk summary for `vm-prod-02`:
 
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 20:20:27.725008,cost_anomaly,vm-scale-04,"### ⚠️ Cost Anomaly Detected: vm-scale-04
+### Capacity Risk Summary: vm-prod-02 (CPU Utilization)
 
-A critical cost anomaly has been flagged for **vm-scale-04** in the **eastus** region. The daily cost spiked to **219.71 USD**, which is **40.4%** above its 30-day average of **156.49 USD** (Z-Score: **2.06**).
+**1. Service at Risk & Projected Breach:**
+The `vm-prod-02` compute instance in the `centralus` region is at critical risk due to rapidly increasing CPU utilization. Based on current trends, it is projected to reach **100% CPU utilization within the next 90 days.**
 
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+*   **Note on Data Inconsistency:** The provided ""Projected Breach Date (80% threshold): 2026-08-31"" appears inconsistent with the daily growth rate and 90-day projection. Based on the current utilization (64.34%) and daily growth rate (0.5004%), the 80% threshold would be breached significantly sooner (approximately 44 days). We are prioritizing the immediate 90-day 100% utilization projection as the primary concern.
 
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 20:20:27.725008,cost_anomaly,vm-scale-04,"### ⚠️ Cost Anomaly Detected: vm-scale-04
+**2. Current Growth Rate & Implications:**
+`vm-prod-02` is experiencing a daily CPU utilization growth rate of **0.5004%**. If this trend continues unaddressed, the instance will reach its maximum CPU capacity (100%) within the next three months. This will inevitably lead to:
+*   Severe performance degradation for applications running on `vm-prod-02`.
+*   Increased latency and potential timeouts for end-users.
+*   Risk of service outages and complete unavailability of the service.
 
-A critical cost anomaly has been flagged for **vm-scale-04** in the **westeurope** region. The daily cost spiked to **230.79 USD**, which is **47.5%** above its 30-day average of **156.49 USD** (Z-Score: **2.17**).
+**3. Recommended Pre-emptive Actions:**
+To mitigate this critical risk, we recommend the following immediate and mid-term actions:
 
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+*   **Immediate Investigation (Application-Level):**
+    *   **Code Optimization:** Conduct an urgent review of the applications running on `vm-prod-02` to identify and optimize any CPU-intensive processes, inefficient code, or database queries.
+    *   **Configuration Tuning:** Check application and OS configurations for potential CPU-saving adjustments.
 
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 20:20:27.725008,cost_anomaly,vm-scale-02,"### ⚠️ Cost Anomaly Detected: vm-scale-02
+*   **Capacity Planning (Infrastructure-Level):**
+    *   **Scale Out:** Plan to deploy additional `vm-prod-02` instances behind a load balancer to distribute the CPU load across multiple resources. This is generally the preferred method for high availability and scalability.
+    *   **Scale Up:** Alternatively, prepare to upgrade the existing `vm-prod-02` instance to a larger VM size with more CPU cores to accommodate the increased demand.
 
-A critical cost anomaly has been flagged for **vm-scale-02** in the **westeurope** region. The daily cost spiked to **255.31 USD**, which is **59.3%** above its 30-day average of **160.27 USD** (Z-Score: **2.03**).
+*   **Data Validation:**
+    *   Review the telemetry data source and calculation logic for `cpu_utilization` and growth rates to resolve the inconsistency regarding the 80% breach date. Ensure our forecasting models are accurate and reliable."
+2026-11-20 01:50:06.874715,underutilization,,"## Weekly Infrastructure Optimization Recommendations - Week of [Current Date]
 
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+This report identifies underutilized infrastructure resources with high potential for cost optimization through right-sizing or decommissioning. Our analysis focuses on sustained low utilization metrics over the past seven days, providing a strong basis for immediate action.
 
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 20:20:27.725008,cost_anomaly,vm-scale-03,"### ⚠️ Cost Anomaly Detected: vm-scale-03
+---
 
-A critical cost anomaly has been flagged for **vm-scale-03** in the **westeurope** region. The daily cost spiked to **252.22 USD**, which is **59.7%** above its 30-day average of **157.96 USD** (Z-Score: **2.20**).
+### 1. Top Candidate for Optimization
 
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+**Resource:** `vm-dev-01` (Development Service)
+**Region:** `centralus`
 
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 20:20:27.725008,cost_anomaly,vm-scale-03,"### ⚠️ Cost Anomaly Detected: vm-scale-03
+**Recommendation:**
+We recommend an immediate investigation into the necessity of `vm-dev-01` for either **decommissioning** or a **significant right-sizing**. Given its extremely low utilization, decommissioning should be the primary consideration if the associated development service is no longer active or can be consolidated. If the service is still required, a substantial reduction in allocated CPU and memory resources is warranted.
 
-A critical cost anomaly has been flagged for **vm-scale-03** in the **eastus** region. The daily cost spiked to **256.17 USD**, which is **62.2%** above its 30-day average of **157.96 USD** (Z-Score: **2.12**).
+**Estimated Monthly Cost Savings:**
+*   **283.03 USD** (if decommissioned or right-sized to minimal viable configuration)
 
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+**Confidence Basis:**
+Our recommendation is based on a high confidence level due to the consistently low resource utilization observed over the past seven days:
+*   **7-day Average CPU Utilization:** **8.1%**
+*   **7-day Average Memory Utilization:** **12.0%**
 
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 20:20:27.725008,cost_anomaly,vm-prod-01,"### ⚠️ Cost Anomaly Detected: vm-prod-01
+These metrics are significantly below typical operational thresholds (e.g., 30-50% for CPU and 50-70% for memory for stable workloads), indicating substantial over-provisioning. The sustained low usage strongly suggests that the allocated resources far exceed the actual demands of the `vm-dev-01` development service.
 
-A critical cost anomaly has been flagged for **vm-prod-01** in the **centralus** region. The daily cost spiked to **300.00 USD**, which is **41.4%** above its 30-day average of **212.15 USD** (Z-Score: **3.47**).
+---
 
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+### 2. Total Estimated Monthly Cost Savings
 
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 20:20:27.725008,cost_anomaly,vm-scale-06,"### ⚠️ Cost Anomaly Detected: vm-scale-06
+By addressing `vm-dev-01` through decommissioning or aggressive right-sizing, we project a total potential monthly cost saving of **283.03 USD**.
 
-A critical cost anomaly has been flagged for **vm-scale-06** in the **eastus** region. The daily cost spiked to **258.88 USD**, which is **61.3%** above its 30-day average of **160.52 USD** (Z-Score: **2.07**).
+---
 
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
+### Next Steps:
 
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 20:20:27.725008,cost_anomaly,vm-scale-01,"### ⚠️ Cost Anomaly Detected: vm-scale-01
+We recommend the platform lead for the `centralus` region and the owner of the development service associated with `vm-dev-01` review this finding. The primary action should be to:
 
-A critical cost anomaly has been flagged for **vm-scale-01** in the **eastus** region. The daily cost spiked to **245.66 USD**, which is **52.4%** above its 30-day average of **161.21 USD** (Z-Score: **2.26**).
+1.  **Validate the ongoing need** for `vm-dev-01`.
+2.  If no longer required, **initiate decommissioning**.
+3.  If still required, **propose a right-sizing plan** to a significantly smaller instance type that aligns with the observed utilization patterns, followed by monitoring to ensure performance stability.
 
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
-
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 20:20:27.725008,cost_anomaly,vm-scale-01,"### ⚠️ Cost Anomaly Detected: vm-scale-01
-
-A critical cost anomaly has been flagged for **vm-scale-01** in the **westeurope** region. The daily cost spiked to **227.62 USD**, which is **41.2%** above its 30-day average of **161.21 USD** (Z-Score: **2.10**).
-
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
-
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 20:20:27.725008,cost_anomaly,vm-scale-05,"### ⚠️ Cost Anomaly Detected: vm-scale-05
-
-A critical cost anomaly has been flagged for **vm-scale-05** in the **westeurope** region. The daily cost spiked to **260.47 USD**, which is **62.5%** above its 30-day average of **160.25 USD** (Z-Score: **2.35**).
-
-**Analysis of Spend:**
-- The anomaly is associated with the **compute** service group.
-- The sudden z-score deviation points to a sharp resource expansion, likely driven by high load spikes, storage allocation increases, or unoptimized data transfers.
-
-**Recommended Actions:**
-1. **Right-size the Resource:** Verify if the VM size matches the load or if a smaller instance tier would suffice.
-2. **Decommission Idle Resources:** If the resource is inactive during off-peak hours, configure auto-shutdown policies.
-3. **Investigate Logs:** Check application logs for data transfer volume spikes or resource loops.
-"
-2026-09-03 20:20:27.725008,capacity_risk,vm-prod-02,"### 📈 Capacity Risk Alert: vm-prod-02 (CPU)
-
-The resource **vm-prod-02** in region **centralus** is experiencing sustained capacity growth. 
-- **Current CPU average:** 64.34%
-- **Projected 90-Day CPU:** 100.00%
-- **Growth Trend:** 0.5004% utilization increase per day
-- **Projected Breach Date (80%):** 2026-08-31
-
-**Impact Analysis:**
-If unaddressed, the resource is projected to exceed the safe operating threshold of 80% on **2026-08-31**, which increases risk of latency spikes, thread exhaustion, or system failure under peak loads.
-
-**Recommended Pre-emptive Actions:**
-1. **Scale-out or Scale-up:** Upgrade the virtual machine size or set up auto-scaling with additional node instances.
-2. **Optimize Load Distribution:** Redistribute traffic or scheduling queues to less loaded servers in the cluster.
-3. **Optimize Code/DB:** Inspect slow queries or optimize memory structures to lower the baseline usage.
-"
-2026-09-03 20:20:27.725008,underutilization,,"### 💡 Infrastructure Optimization & Right-Sizing Report
-
-Analysis of telemetry over the past 7 days has identified opportunities to reduce cloud spend by decommissioning or right-sizing underutilized resources.
-
-#### Candidate: vm-dev-01 (development tag)
-- **Average CPU utilization:** 8.07% (Threshold: < 20%)
-- **Average Memory utilization:** 12.03% (Threshold: < 20%)
-- **Current daily cost:** 9.43 USD
-- **Decommission Savings:** **283.03 USD/Month**
-- **Confidence Level:** High (Consistently underutilized over a 7-day rolling window)
-
-**Total Potential Savings: 283.03 USD/Month**
-
-**Decommissioning Plan:** We recommend shutting down these resources in the next maintenance window after notifying their respective owners."
+This targeted action will directly contribute to budget efficiency without impacting critical services."

@@ -3,8 +3,12 @@
 from __future__ import annotations
 
 import argparse
+from pathlib import Path
 import sys
 import time
+
+# Ensure project root is in sys.path when script is executed directly
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import schedule
 
@@ -74,7 +78,7 @@ def main() -> None:
         help="Seed the databases with 30 days of historical telemetry",
     )
     parser.add_argument(
-        "--run", "-r",
+        "--run", "-r", "--once",
         action="store_true",
         help="Run the E2E pipeline immediately",
     )

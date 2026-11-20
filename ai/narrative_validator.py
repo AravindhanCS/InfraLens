@@ -129,8 +129,10 @@ def validate_narrative_accuracy(
 
     try:
         # Fetch all narrative insights
+        cols = [c[1] for c in conn.execute("PRAGMA table_info('narrative_insights')").fetchall()]
+        id_expr = "id" if "id" in cols else "row_number() over () as id"
         narratives = conn.execute(
-            "SELECT id, scenario, resource_id, insight_text FROM narrative_insights"
+            f"SELECT {id_expr}, scenario, resource_id, insight_text FROM narrative_insights"
         ).fetchall()
 
         for nid, scenario, res_id, text in narratives:
@@ -223,3 +225,24 @@ def validate_narrative_accuracy(
             conn.close()
 
     return results
+
+
+if __name__ == "__main__":
+    print("=" * 70)
+    print("INFRA LENS AI NARRATIVE FACTUAL ACCURACY ENGINE")
+    print("=" * 70)
+    rep = validate_narrative_accuracy()
+    print(f"Total AI Insight Narratives Cross-Validated: {rep['total_checked']}")
+    print(f"  - Passed Factual Check (within ±5% tolerance): {rep['passed']}")
+    print(f"  - Failed / Hallucinated Mismatches:            {rep['failed']}")
+    print("-" * 70)
+    for d in rep.get("details", []):
+        status_tag = "[PASS]" if d["status"] == "PASSED" else "[FAIL]"
+        res_str = d.get("resource_id") or "CONSOLIDATED"
+        print(f"  {status_tag} Scenario: {d.get('scenario'):<22} | Resource: {res_str}")
+        for err in d.get("errors", []):
+            print(f"       -> {err}")
+    print("-" * 70)
+    pct = (rep['passed'] / max(rep['total_checked'], 1)) * 100
+    print(f"FACTUAL ACCURACY RATE: {pct:.1f}% ({rep['passed']}/{rep['total_checked']} verified against DuckDB)")
+    print("=" * 70)

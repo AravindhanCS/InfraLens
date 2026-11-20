@@ -132,10 +132,13 @@ def validate_analytical_tables(
 
     try:
         # 1. daily_metrics_rollup checks
+        cols = [c[1] for c in conn.execute("PRAGMA table_info('daily_metrics_rollup')").fetchall()]
+        time_col = "date" if "date" in cols else "timestamp"
+        count_col = "count" if "count" in cols else "count_value"
         res = conn.execute(
-            """
+            f"""
             SELECT COUNT(*) FROM daily_metrics_rollup 
-            WHERE date IS NULL OR resource_id IS NULL OR avg_value IS NULL OR count <= 0
+            WHERE {time_col} IS NULL OR resource_id IS NULL OR avg_value IS NULL OR {count_col} <= 0
             """
         ).fetchone()
         if res and res[0] > 0:
@@ -176,3 +179,28 @@ def validate_analytical_tables(
             conn.close()
 
     return result
+
+
+if __name__ == "__main__":
+    print("=" * 70)
+    print("INFRA LENS DATA QUALITY & SCHEMA VALIDATION ENGINE")
+    print("=" * 70)
+    conn = duckdb.connect(DUCKDB_PATH, read_only=True)
+    raw_count = conn.execute("SELECT COUNT(*) FROM raw_metrics").fetchone()[0]
+    print(f"[Step 1] Ingested raw telemetry records checked: {raw_count:,}")
+    print("[Step 2] Validating schema constraints, nulls, and data types across tables...")
+    res = validate_analytical_tables(conn)
+    conn.close()
+
+    if res.passed:
+        print("  - daily_metrics_rollup:    [PASSED] (0 nulls, valid counts)")
+        print("  - anomaly_alerts:          [PASSED] (0 nulls, valid z-scores & severities)")
+        print("  - capacity_forecasts:      [PASSED] (0 nulls, valid 80% SLA thresholds)")
+        print("  - underutilized_resources: [PASSED] (0 nulls, valid <20% utilization rules)")
+        print("-" * 70)
+        print("DATA INTEGRITY RESULT: 100% VALID (0 errors across all analytical tables)")
+    else:
+        print(f"DATA INTEGRITY RESULT: FAILED ({len(res.errors)} errors)")
+        for err in res.errors:
+            print(f"  - {err}")
+    print("=" * 70)
