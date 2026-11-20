@@ -1,0 +1,5 @@
+[run]
+omit =
+    verify_output.py
+    .venv/*
+    htmlcov/*

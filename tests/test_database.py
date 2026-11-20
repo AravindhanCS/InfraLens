@@ -4,7 +4,9 @@ from __future__ import annotations
 
 from datetime import datetime
 import os
+from unittest.mock import MagicMock
 
+import clickhouse_connect
 import duckdb
 import pytest
 
@@ -80,3 +82,45 @@ def test_clickhouse_store_write_live():
         assert up_count == init_count + 1
     except Exception as e:
         pytest.skip(f"Skipping live ClickHouse test: ClickHouse not accessible ({e})")
+
+
+def test_clickhouse_store_mock_functions():
+    """Test ClickHouse store helpers with mock client to guarantee coverage when live container is absent."""
+    mock_client = MagicMock()
+    # Test table init
+    init_clickhouse_tables(mock_client)
+    mock_client.command.assert_called_once()
+
+    # Test empty write
+    assert write_metrics_to_clickhouse(mock_client, []) == 0
+
+    # Test records write with list of lists result
+    mock_client.query.return_value.result_rows = [[10]]
+    records = [
+        {
+            "source": "azure_monitor",
+            "resource_id": "vm-1",
+            "metric_name": "cpu",
+            "value": 45.0,
+            "unit": "percent",
+            "timestamp": "2026-07-12T00:00:00Z",
+            "region": "centralus",
+            "service_tag": "compute",
+        }
+    ]
+    assert write_metrics_to_clickhouse(mock_client, records) == 10
+    mock_client.insert.assert_called_once()
+
+    # Test records write with dict result
+    mock_client.query.return_value.result_rows = [{"count()": 15}]
+    assert write_metrics_to_clickhouse(mock_client, records) == 15
+
+
+def test_clickhouse_get_client_success(monkeypatch):
+    """Test ClickHouse client connection logic using mock."""
+    mock_connect = MagicMock()
+    monkeypatch.setattr(clickhouse_connect, "get_client", mock_connect)
+    client = get_clickhouse_client()
+    assert client == mock_connect.return_value
+    mock_connect.return_value.ping.assert_called_once()
+

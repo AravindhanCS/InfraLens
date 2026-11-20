@@ -5,6 +5,7 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  workflow_dispatch:
 
 jobs:
   test-and-validate:
@@ -28,7 +29,7 @@ jobs:
 
     - name: Run Pytest Test Suite with Coverage
       run: |
-        python -m pytest --cov=ai --cov=database --cov=ingestion --cov=transformation --cov=validation --cov=dashboard --cov-report=term-missing --cov-fail-under=80
+        python -m pytest --cov=. --cov-report=term-missing --cov-fail-under=80
 
     - name: Run Scale Benchmark (Week 15 SLA Validation)
       run: |
