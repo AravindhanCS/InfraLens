@@ -17,7 +17,15 @@ import pandas as pd
 
 # Explicit candidate directories to guarantee file resolution inside Power BI Desktop
 # (where Power BI's internal working directory defaults to AppData\Local\Temp)
-PROJECT_DIR = Path(r"C:\Users\aravindhan.chandrase\Desktop\Psiddhi Sem3\InfraLens")
+candidate_paths = [
+    Path(r"C:\Users\aravindhan.chandrase\Desktop\Others\Psiddhi Sem3\InfraLens"),
+    Path(r"C:\Users\aravindhan.chandrase\Desktop\Psiddhi Sem3\InfraLens"),
+]
+PROJECT_DIR = candidate_paths[0]
+for p in candidate_paths:
+    if (p / "data" / "processed").exists():
+        PROJECT_DIR = p
+        break
 
 if "__file__" in globals():
     candidate = Path(__file__).resolve().parent.parent
