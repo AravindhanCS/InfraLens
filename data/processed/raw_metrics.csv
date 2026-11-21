@@ -81047,3 +81047,15 @@ azure_cost,vm-prod-01,daily_cost,124.3,usd,2026-11-20 01:49:46.64844,centralus,c
 azure_cost,vm-prod-01,monthly_cost,3729.0,usd,2026-11-20 01:49:46.64844,centralus,compute
 datadog,svc-api-gateway,request_rate,1340.8,rpm,2026-07-11 10:05:00,eastus2,api
 datadog,svc-api-gateway,error_rate,1.2,percent,2026-07-11 10:05:00,eastus2,api
+azure_monitor,vm-prod-01,cpu_utilization,64.2,percent,2026-11-20 08:55:59.970513,centralus,compute
+azure_monitor,vm-prod-01,memory_utilization,52.5,percent,2026-11-20 08:55:59.970513,centralus,compute
+azure_cost,vm-prod-01,daily_cost,124.3,usd,2026-11-20 08:56:00.246026,centralus,compute
+azure_cost,vm-prod-01,monthly_cost,3729.0,usd,2026-11-20 08:56:00.246026,centralus,compute
+datadog,svc-api-gateway,request_rate,1340.8,rpm,2026-07-11 10:05:00,eastus2,api
+datadog,svc-api-gateway,error_rate,1.2,percent,2026-07-11 10:05:00,eastus2,api
+azure_monitor,vm-prod-01,cpu_utilization,64.2,percent,2026-11-20 10:12:51.571062,centralus,compute
+azure_monitor,vm-prod-01,memory_utilization,52.5,percent,2026-11-20 10:12:51.571062,centralus,compute
+azure_cost,vm-prod-01,daily_cost,124.3,usd,2026-11-20 10:12:51.922111,centralus,compute
+azure_cost,vm-prod-01,monthly_cost,3729.0,usd,2026-11-20 10:12:51.922111,centralus,compute
+datadog,svc-api-gateway,request_rate,1340.8,rpm,2026-07-11 10:05:00,eastus2,api
+datadog,svc-api-gateway,error_rate,1.2,percent,2026-07-11 10:05:00,eastus2,api
